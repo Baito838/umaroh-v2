@@ -214,7 +214,6 @@
             gapi.load('client:auth2', initAuth);
         }
 
-        // Fungsi untuk inisialisasi otentikasi Google API
         function initAuth() {
             gapi.client.init({
                 apiKey: 'AIzaSyDnA1gJ2mg-A31Rav1XFj-LbiJ8WIiQB6o', // Ganti dengan API Key Anda
@@ -225,6 +224,7 @@
                 updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
             }).catch(function (error) {
                 console.error("Error initializing gapi client:", error);
+                alert("Gagal menginisialisasi Google API. Periksa kredensial Anda.");
             });
         }
 
