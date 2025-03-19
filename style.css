@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    .mont {
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+    }
+
+    * {
+        overflow-x: hidden;
+    }
+
+    .row,
+    .col-4, 
+    .container {
+        overflow: hidden;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background-color: #f8c536;
+        font-family: sans-serif;
+    }
+
+    .hero {
+        overflow-y: hidden;
+        overflow-x: hidden;
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background-image: url('assets/bg.png');
+        background-repeat: no-repeat;
+        /* background-attachment: fixed; */
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .content {
+        overflow-y: hidden;
+        overflow-x: hidden;
+
+    }
+
+    .hero-title {
+        margin-top: 120px;
+    }
+
+    .leaf-1 {
+        position: absolute;
+        width: clamp(180px, 25vw, 220px);
+        right: -90px;
+        top: 70px;
+    }
+
+    .leaf-2 {
+        position: absolute;
+        width: clamp(180px, 25vw, 220px);
+        left: -100px;
+        top: 380px;
+    }
+
+    .pray {
+        position: absolute;
+        top: 220px;
+        left: 20%;
+        width: clamp(150px, 25vw, 300px);
+    }
+
+    .food {
+        position: absolute;
+        top: 220px;
+        right: 20%;
+        width: clamp(150px, 25vw, 300px);
+    }
+
+    .phone {
+        position: absolute;
+        width: clamp(300px, 25vw, 500px);
+        left: 50%;
+        transform: translateX(-50%);
+        /* This will center the element horizontally */
+        bottom: 10px;
+    }
+
+    .cloud {
+        position: absolute;
+        width: clamp(300px, 25vw, 500px);
+        z-index: 99;
+        /* This will center the element horizontally */
+        left: -150px;
+        bottom: -80px;
+    }
+
+    .cloud-2 {
+        position: absolute;
+        width: clamp(300px, 25vw, 500px);
+        z-index: 99;
+        /* This will center the element horizontally */
+        right: -200px;
+        top: 800px;
+    }
+
+    .earth {
+        position: absolute;
+        width: clamp(300px, 25vw, 500px);
+        z-index: -1;
+        /* This will center the element horizontally */
+        right: -200px;
+        top: 1500px;
+    }
+
+    .plane {
+        position: absolute;
+        width: clamp(250px, 25vw, 500px);
+        z-index: -1;
+        /* This will center the element horizontally */
+        left: -120px;
+        top: 1050px;
+    }
+
+    .bird {
+        position: absolute;
+        width: clamp(300px, 25vw, 500px);
+        right: -180px;
+        z-index: 99;
+        /* This will center the element horizontally */
+        bottom: -80px;
+    }
+
+    .yellow {
+        position: absolute;
+        width: clamp(400px, 25vw, 700px);
+        left: 50%;
+        transform: translateX(-50%);
+        /* This will center the element horizontally */
+        bottom: -100px;
+    }
+
+    .wave {
+        position: absolute;
+        z-index: 2;
+        bottom: -130px;
+        width: 100%;
+    }
+
+    .card {
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .col-4 .card {
+        height: 180px;
+    }
+
+     /* Menjaga modal tetap berada di tengah layar */
+     .modal-dialog {
+        margin: auto;
+    }
+
+    .modal-backdrop {
+        background-color: rgba(0, 0, 0, 0.7); /* Warna gelap di belakang modal */
+    }
+
+
+    @media (max-width: 920px) {
+
+        /* Mobile screens */
+        .pray {
+            left: 10%;
+        }
+
+        .food {
+            right: 10%;
+        }
+
+        .wave {
+            position: absolute;
+            z-index: 10;
+            bottom: -50px;
+            width: 100%;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+
+        /* Mobile screens */
+        .pray {
+            left: 10%;
+        }
+
+        .food {
+            right: 10%;
+        }
+
+        .wave {
+            position: absolute;
+            z-index: 10;
+            bottom: -10px;
+            width: 100%;
+        }
+
+    }

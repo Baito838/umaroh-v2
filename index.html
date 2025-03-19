@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umaroh Invitation</title>
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://apis.google.com/js/api.js"></script>
+
+    <!-- Menambahkan jQuery untuk mempermudah AJAX -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        // Fungsi untuk menangani pengiriman form via AJAX
+        $(document).ready(function () {
+            // Menangani pengiriman form
+            $("#submitName").click(function () {
+                var userName = $("#userName").val();
+                var gender = $("#genderSelect").val();
+
+                // Validasi input
+                if (userName && gender) {
+                    // Kirim data menggunakan AJAX
+                    $.ajax({
+                        url: '',  // Bisa menyesuaikan URL backend jika diperlukan
+                        type: 'GET',  // Atau 'POST' jika ingin menggunakan POST
+                        data: {
+                            name: userName,
+                            gender: gender
+                        },
+                        success: function (response) {
+                            // Tampilkan nama dan gelar di elemen dengan id 'name'
+                            $("#name").html(gender + " " + userName);
+                            // Menutup modal setelah data dikirim
+                            $('#nameModal').modal('hide');
+                        },
+                        error: function (xhr, status, error) {
+                            // Menangani error jika ada
+                            alert("Terjadi kesalahan, coba lagi!");
+                        }
+                    });
+                } else {
+                    alert("Nama dan Gelar tidak boleh kosong!");
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <!-- Modal untuk Input Nama -->
+    <div class="modal fade" id="nameModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="nameModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="nameModalLabel">Selamat Datang</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Pilihan Gelar (Bapak/Ibu) -->
+                    <select id="genderSelect" class="form-select mb-3">
+                        <option value="" disabled selected>Pilih Gelar</option>
+                        <option value="Bapak">Bapak</option>
+                        <option value="Ibu">Ibu</option>
+                    </select>
+
+                    <!-- Input Nama -->
+                    <input type="text" id="userName" class="form-control" placeholder="Masukkan Nama Anda">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="submitName">Kirim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero">
+        <img src="assets/leaf-2.png" class="leaf-1" alt="" data-aos="fade-up-left" data-aos-duration="1000">
+        <img src="assets/leaf-2.png" class="leaf-2" alt="" data-aos="fade-up-right" data-aos-duration="1000">
+        <img src="assets/food.png" class="food" alt="" data-aos="zoom-in" data-aos-duration="800">
+        <img src="assets/pray.png" class="pray" alt="" data-aos="zoom-in" data-aos-duration="1000">
+        <img src="assets/yellow.png" class="yellow" alt="">
+        <img src="assets/phone.png" class="phone" alt="">
+        <div class="text-center text-light hero-title">
+            <p class="mont hero-text" style="margin-bottom: -3px;" data-aos="fade-down" data-aos-duration="800">
+                Launching Aplikasi</p>
+            <h1 class=" fw-bold" data-aos="fade-down" data-aos-duration="900">UMAROH.COM V.2</h1>
+            <p class="mont hero-text" data-aos="fade-down" data-aos-duration="1000">22.03.25</p>
+        </div>
+        <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#f8c536" fill-opacity="1"
+                d="M0,64L80,85.3C160,107,320,149,480,170.7C640,192,800,192,960,165.3C1120,139,1280,85,1360,58.7L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+            </path>
+        </svg>
+
+
+        <img src="assets/bird.png" class="bird" alt="" data-aos="fade-right" data-aos-duration="1200">
+        <img src="assets/cloud-1.png" class="cloud" alt="" data-aos="fade-right" data-aos-duration="1000">
+    </div>
+
+    <div class="content mb-5">
+        <h2 class="text-center fw-bold" data-aos="fade-up" data-aos-duration="900">UNDANGAN RESMI</h2>
+        <h2 class="text-center fw-bold" data-aos="fade-up" data-aos-duration="900">LAUNCHING APLIKASI UMAROH V2</h2>
+        <br>
+        <img src="assets/cloud-2.png" class="cloud-2" alt="" data-aos="fade-up" data-aos-duration="900">
+        <h2 class="text-center" data-aos="fade-up" data-aos-duration="900">Kepada Yth</h2>
+        <h2 class="text-center" id="name" data-aos="fade-up" data-aos-duration="900"></h2>
+        <h2 class="text-center" data-aos="fade-up" data-aos-duration="900">Dengan Hormat</h2>
+        <br>
+        <br>
+
+        <div class="container text-center">
+            <h2 data-aos="fade-up" data-aos-duration="900">Kami dengan bangga mengundang Anda untuk menghadiri acara
+                Launching Aplikasi Umaroh V.2, yang akan diselenggarakan secara online pada:</h2>
+
+            <img src="assets/plane.png" class="plane" alt="" data-aos="fade-right" data-aos-duration="1200">
+            <div class="row my-5">
+                <div class="col-4">
+                    <div data-aos="fade-left" data-aos-duration="900"
+                        class="card d-flex align-items-center justify-content-center">
+                        <h1 class="fw-bold" style="font-size: 45px;">22</h1>
+                        <p class="mont">Maret 25</p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div data-aos="fade-up" data-aos-duration="900"
+                        class="card d-flex align-items-center justify-content-center">
+                        <h1 class="mont">13:00</h1>
+                        <div style="background-color: black; height: 1px; width: 80%;margin-bottom: 10px;"></div>
+                        <small class="mont">Selesai</small>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div data-aos="fade-right" data-aos-duration="900"
+                        class="card d-flex align-items-center justify-content-center">
+                        <img src="assets/LIVE STREAM.png" style=" background-size: contain; max-height: 100px;" alt="">
+                        <a href="https://us06web.zoom.us/j/84134573359?pwd=fpGzg5zctJGkPRdxNW2pJcavY7lRoQ.1"
+                            class="btn btn-info rounded-pill w-50 text-light">Join</a>
+                    </div>
+                </div>
+            </div>
+            <img src="assets/earth.png" class="earth" alt="" data-aos="fade-left" data-aos-duration="1200">
+
+            <h2 data-aos="fade-up" data-aos-duration="900">Versi terbaru ini hadir dengan fitur tambahan yang lebih
+                bermanfaat bagi pengguna. Jangan lewatkan
+                kesempatan untuk mengenal inovasi terbaru kami!</h2>
+
+
+            <br>
+            <br>
+            <h2 data-aos="fade-up" data-aos-duration="900">Hormat kami,<br>
+                [Management Umaroh]</h2>
+
+            <br>
+            <br>
+            <br>
+            <div class="card py-5">
+                <h5 class="text-center fw-bold" data-aos="fade-up" data-aos-duration="900">Hadir dalam acara kami</h5>
+                <h1 class="text-center fw-bold" data-aos="fade-up" data-aos-duration="900">Bertambah,</h1>
+                <h1 class="text-center fw-bold" data-aos="fade-up" data-aos-duration="900" style="margin-top: -7px;">
+                    bersama Umaroh</h1>
+                <h5 class="text-center fw-bold" data-aos="fade-up" data-aos-duration="900">mari bersama meraih
+                    keberkahan</h5>
+                <!-- Button Siap Hadir -->
+                <div class="container">
+                    <a href="#" id="siapHadirButton" class="btn btn-light rounded-pill" style="width: 80%;"
+                        data-aos="zoom-in" data-aos-duration="900">
+                        <h5 class="fw-bold">Siap Hadir</h5>
+                    </a>
+                </div>
+                <div class="text-center">
+                    <div
+                        style="width: 30%; height: 5px; border-radius: 50px; background-color: black; margin-top: 10px; left: 50%;transform: translateX(-50%); position: absolute;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5">
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
+
+    <script>
+        // Fungsi untuk menghapus query parameter 'name' dari URL
+        function removeQueryParam() {
+            var url = window.location.href;
+            if (url.indexOf('?') !== -1) {
+                var newUrl = url.split('?')[0]; // Menghapus query string
+                window.history.replaceState({}, document.title, newUrl); // Update URL
+            }
+        }
+
+
+        function loadClient() {
+            gapi.load('client:auth2', initAuth);
+        }
+
+        function initAuth() {
+            gapi.client.init({
+                apiKey: 'AIzaSyDnA1gJ2mg-A31Rav1XFj-LbiJ8WIiQB6o', // Ganti dengan API Key Anda
+                clientId: '1049985475851-d8ii554o31jibc4dghmjb5i2g4nen6re.apps.googleusercontent.com', // Ganti dengan OAuth Client ID Anda
+                scope: 'https://www.googleapis.com/auth/spreadsheets'
+            }).then(function () {
+                gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+                updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+            }).catch(function (error) {
+                console.error("Error initializing gapi client:", error);
+            });
+        }
+
+        // Fungsi untuk menangani status login
+        function updateSigninStatus(isSignedIn) {
+            if (isSignedIn) {
+                console.log('User signed in');
+            } else {
+                gapi.auth2.getAuthInstance().signIn();
+            }
+        }
+
+        // Fungsi untuk mengirim data ke Google Sheets
+        function addToSheet(userName, gender) {
+            var fullName = gender + " " + userName;  // Gabungkan gelar dan nama
+
+            gapi.client.sheets.spreadsheets.values.append({
+                spreadsheetId: '1zWuXPip9RgRSJFWx5i16_C3PJfiqXpJ9yYE9ikyh42s', // Ganti dengan ID spreadsheet Anda
+                range: 'Sheet1!A:B', // Ganti dengan range yang sesuai, misalnya kolom A untuk Gelar dan B untuk Nama
+                valueInputOption: 'RAW',
+                resource: {
+                    values: [
+                        [fullName]  // Menambahkan nama (Gelar + Nama)
+                    ]
+                }
+            }).then(function (response) {
+                console.log("Data successfully added to sheet:", response);
+                alert("Terima kasih! Kehadiran Anda telah dicatat.");
+            }, function (response) {
+                console.log("Error adding data:", response);
+                alert("Gagal menambahkan data, silakan coba lagi.");
+            });
+        }
+
+        // Menangani pengiriman nama dari modal
+        document.getElementById("submitName").addEventListener("click", function () {
+            var userName = document.getElementById("userName").value;
+            var gender = document.getElementById("genderSelect").value;
+
+            if (userName && gender) {
+                // Menambahkan nama pengguna dan gender ke URL sebagai query parameter
+                var currentUrl = window.location.href.split('?')[0]; // Pastikan hanya 1 query string yang ada
+                window.history.replaceState({}, document.title, currentUrl + "?name=" + encodeURIComponent(userName) + "&gender=" + encodeURIComponent(gender));
+
+                // Kirim data ke Google Sheets setelah modal ditutup
+                addToSheet(userName, gender);
+
+                // Menutup modal
+                var myModal = bootstrap.Modal.getInstance(document.getElementById('nameModal'));
+                myModal.hide();
+            } else {
+                alert("Nama dan Gelar tidak boleh kosong!");
+            }
+        });
+
+        // Menangani pengiriman nama dan kehadiran saat tombol "Siap Hadir" diklik
+        document.getElementById("siapHadirButton").addEventListener("click", function () {
+            var userName = document.getElementById("userName").value;
+            var gender = document.getElementById("genderSelect").value;
+
+            if (userName && gender) {
+                // Kirim data ke Google Sheets setelah tombol "Siap Hadir" diklik
+                addToSheet(userName, gender);  // Panggil fungsi untuk menambahkan data ke spreadsheet
+
+                // Tampilkan pesan sukses
+                alert("Terima kasih! Kehadiran Anda telah dicatat.");
+            } else {
+                alert("Nama dan Gelar tidak boleh kosong!");
+            }
+        });
+
+        // Inisialisasi API client pada saat halaman dimuat
+        window.onload = function () {
+            loadClient();  // Pastikan API client dimuat
+            var myModal = new bootstrap.Modal(document.getElementById('nameModal'), {
+                keyboard: false
+            });
+            myModal.show();
+        };
+    </script>
+
+</body>
+
+</html>
