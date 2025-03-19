@@ -209,15 +209,16 @@
             }
         }
 
-
+        // Fungsi untuk menginisialisasi Google API Client
         function loadClient() {
             gapi.load('client:auth2', initAuth);
         }
 
+        // Fungsi untuk inisialisasi otentikasi Google API
         function initAuth() {
             gapi.client.init({
                 apiKey: 'AIzaSyDnA1gJ2mg-A31Rav1XFj-LbiJ8WIiQB6o', // Ganti dengan API Key Anda
-                clientId: '1049985475851-d8ii554o31jibc4dghmjb5i2g4nen6re.apps.googleusercontent.com', // Ganti dengan OAuth Client ID Anda
+                clientId: '11049985475851-d8ii554o31jibc4dghmjb5i2g4nen6re.apps.googleusercontent.com', // Ganti dengan OAuth Client ID Anda
                 scope: 'https://www.googleapis.com/auth/spreadsheets'
             }).then(function () {
                 gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
@@ -238,6 +239,11 @@
 
         // Fungsi untuk mengirim data ke Google Sheets
         function addToSheet(userName, gender) {
+            if (!gapi.client.sheets) {
+                console.error('Google Sheets API client is not initialized');
+                return;
+            }
+
             var fullName = gender + " " + userName;  // Gabungkan gelar dan nama
 
             gapi.client.sheets.spreadsheets.values.append({
@@ -295,15 +301,17 @@
             }
         });
 
-        // Inisialisasi API client pada saat halaman dimuat
+        // Gabungkan inisialisasi dan modal tampilkan saat halaman dimuat
         window.onload = function () {
             loadClient();  // Pastikan API client dimuat
+            removeQueryParam(); // Menghapus query parameter saat halaman dimuat
             var myModal = new bootstrap.Modal(document.getElementById('nameModal'), {
                 keyboard: false
             });
             myModal.show();
         };
     </script>
+
 
 </body>
 
